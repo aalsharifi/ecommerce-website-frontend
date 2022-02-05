@@ -16,32 +16,18 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
-const axios = require("axios");
 import CategoryBox from '../../components/category/CategoryBox.vue'
 export default {
     name: "Category",
+    props: ["categories"],
     components: {CategoryBox},
     data() {
         return{
             baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
-            categories: [],
         };
-    },
-
-    methods:{
-        async getCategories(){
-            await axios
-            .get(`${this.baseURL}/category/list`)
-            .then((res) => (this.categories = res.data))
-            .catch((err) => console.log(err));
-        },
-    },
-    mounted(){
-        this.getCategories();
     }
 };
 </script>
