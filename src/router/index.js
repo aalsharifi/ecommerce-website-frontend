@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AddCategory from '../views/category/AddCategory.vue'
-
+import Category from '../views/category/Category.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +21,11 @@ const routes = [
     path: '/admin/category/addCategory',
     name: 'AddCategory',
     component: AddCategory
+  },
+  {
+    path: '/admin/category',
+    name: 'Category',
+    component: Category
   }
 
 ]
