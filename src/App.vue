@@ -4,9 +4,48 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+
+   <router-view
+   :baseURL="baseURL" 
+   :categories="categories" 
+   :products="products">  
+   </router-view>
+   
   </div>
+
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return{
+      baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
+      products: [],
+      categories: []
+    };
+  },
+  methods: {
+    async fetchData(){
+
+          //get all categories
+            await axios
+            .get(`${this.baseURL}/category/list`)
+            .then((res) => (this.categories = res.data))
+            .catch((err) => console.log(err));
+
+          //get all products
+          await axios
+            .get(`${this.baseURL}/product/list`)
+            .then((res) => (this.products = res.data))
+            .catch((err) => console.log(err));
+        }
+    },
+    mounted(){
+        this.fetchData();
+    },
+};
+</script>
 
 <style>
 #app {
