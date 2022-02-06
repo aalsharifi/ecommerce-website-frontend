@@ -9,6 +9,7 @@
                 </router-link>
             </div>
         </div>
+        <!-- display all categories in categoryBox component -->
         <div class="row">
             <div v-for="category of categories" :key="category.id" 
             class="col-xl-4 col-md-6 col-12 pt-3 d-flex">
@@ -21,14 +22,8 @@
 <script>
 import CategoryBox from '../../components/category/CategoryBox.vue'
 export default {
-    name: "Category",
     props: ["categories"],
     components: {CategoryBox},
-    data() {
-        return{
-            baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
-        };
-    }
 };
 </script>
 

@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ category.categoryName }}</h5>
-            <p class="card-text">{{ category.description }}</p>
+            <p class="card-text">{{ category.description.substring(0, 65) }}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
@@ -15,9 +15,6 @@
 export default {
     name: "CategoryBox",
     props: ["category"],
-    methods: {
-
-    },
 };
 </script>
 
