@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AddCategory from '../views/category/AddCategory.vue'
 import Category from '../views/category/Category.vue'
+import Admin from '../views/Admin.vue'
+import Product from '../views/product/Product.vue'
+import AddProduct from '../views/product/AddProduct.vue'
 
 Vue.use(VueRouter)
 
@@ -24,9 +27,24 @@ const routes = [
   },
   {
     path: '/admin/category',
-    name: 'Category',
+    name: 'AdminCategory',
     component: Category
-  }
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
+  },
+  {
+    path: '/admin/product',
+    name: 'AdminProduct',
+    component: Product
+  },
+  {
+    path: '/admin/product/addProduct',
+    name: 'AddProduct',
+    component: AddProduct
+  },
 
 ]
 
