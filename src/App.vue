@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
+    
+    <Navbar />
+    
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
 
    <router-view
    :baseURL="baseURL" 
@@ -16,8 +19,10 @@
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue";
 import axios from "axios";
 export default {
+  components: { Navbar },
   data() {
     return{
       baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
