@@ -6,7 +6,11 @@
         <div class="card-body">
             <h5 class="card-title">{{ category.categoryName }}</h5>
             <p class="card-text">{{ category.description.substring(0, 65) }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            <router-link :to="{ name: 'EditCategory', params: {id: category.id}}">
+                <button class="btn btn-primary">Edit</button>
+            </router-link>
+            
         </div>
     </div>
 </template>
