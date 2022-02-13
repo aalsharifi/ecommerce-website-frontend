@@ -1,8 +1,7 @@
 <template>
-
+   
     <header :class="{'scrolled-nav': scrollNav}">
         <nav>
-           
             <router-link class="branding" :to="{ name: 'Home' }">
                 <img src="@/assets/logo.png" alt="">
             </router-link>
@@ -28,7 +27,11 @@
             </transition>
 
         </nav>
+
+        <div class="spacer"></div>
     </header>
+
+    
     
 </template>
 
@@ -90,9 +93,11 @@ export default {
         background-color: rgba(0, 0, 0, 0.8);
         z-index: 99;
         width: 100%;
-        position: fixed;
+        position: sticky;
+        top: 0;
         transition: 0.5s ease all;
         color: #fff;
+        
 
         nav{
             position: relative;
@@ -102,8 +107,7 @@ export default {
             transition: 0.5s ease all;
             width: 90%;
             margin: 0 auto;
-
-
+        
             @media(min-width: 1140px) {
                 max-width: 1140px;
             }
@@ -215,7 +219,7 @@ export default {
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
         nav{
-            padding: 4px 0;
+            padding: 0px 0;
             .branding{
                 img{
                     width: 40px;
@@ -224,4 +228,6 @@ export default {
             }
         }
     }
+
+
 </style>
