@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    
-    <Navbar />
-    
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+  
+  <Navbar />
 
-   <router-view
+   <router-view v-if="categories && products"
    :baseURL="baseURL" 
    :categories="categories" 
-   :products="products">  
+   :products="products"
+   @fetchData="fetchData"
+   >
    </router-view>
    
   </div>
@@ -26,8 +23,8 @@ export default {
   data() {
     return{
       baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
-      products: [],
-      categories: []
+      products: null,
+      categories: null
     };
   },
   methods: {
@@ -59,18 +56,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
