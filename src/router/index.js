@@ -8,6 +8,8 @@ import Product from '../views/product/Product.vue'
 import AddProduct from '../views/product/AddProduct.vue'
 import EditCategory from '../views/category/EditCategory.vue'
 import EditProduct from '../views/product/EditProduct.vue'
+import ShowProductDetails from '../views/product/ShowProductDetails.vue'
+import ListProducts from '../views/category/ListProducts.vue'
 
 Vue.use(VueRouter)
 
@@ -17,11 +19,6 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }, 
   {
     path: '/admin/category/addCategory',
     name: 'AddCategory',
@@ -38,6 +35,11 @@ const routes = [
     component: EditCategory
   },
   {
+    path: '/category/show/:id',
+    name: 'ListProducts',
+    component: ListProducts
+  },
+  {
     path: '/admin/product',
     name: 'AdminProduct',
     component: Product
@@ -51,6 +53,11 @@ const routes = [
     path: '/admin/product/:id',
     name: 'EditProduct',
     component: EditProduct
+  },
+  {
+    path: '/product/show/:id',
+    name: 'ShowProductDetails',
+    component: ShowProductDetails
   },
   {
     path: '/admin',
