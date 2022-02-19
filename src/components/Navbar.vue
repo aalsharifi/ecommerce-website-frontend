@@ -8,6 +8,17 @@
 
             <ul v-show="!mobile" class="navigation">
                 <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle link" href="#" 
+                    id="navbarDropdownMenuLink" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false">Account</a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <router-link class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
+                        <router-link class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                    </div>
+                </li>
                 <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
                 <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
                 <li><router-link class="link" :to="{ name: '' }">Contact</router-link></li>
@@ -20,6 +31,17 @@
             <transition name="mobile-nav">
                 <ul v-show="mobileNav" class="dropdown-nav">
                     <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link" href="#" 
+                        id="navbarDropdownMenuLink" data-toggle="dropdown" 
+                        aria-haspopup="true" aria-expanded="false">Account</a>
+                        
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <router-link class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
+                            <router-link class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                        </div>
+                    </li>
                     <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
                     <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
                     <li><router-link class="link" :to="{ name: '' }">Contact</router-link></li>
