@@ -26,26 +26,49 @@
                     </ul>
                 </div>
 
+                <button id="wishlistButton" class="btn btn-secondary mr-3 p-1 py-0" @click="addToWishlist">{{ wishlistString }}</button>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import swal from 'sweetalert';
+import axios from 'axios';
+
 export default {
-    props:["products", "categories"],
+    props:["products", "categories", "baseURL"],
 
     data(){
         return{
+            id: null,
             product: {},
-            category: {}
+            category: {},
+            wishlistString: "Add to Wishlist",
         };
+    },
+
+    methods: {
+        async addToWishlist(){
+            if(!this.token){
+                swal({
+                    text: "Please sign-in to add item into wishlist",
+                    icon: "error"
+                });
+
+                return;
+            }
+
+            await axios.post(`${this.baseURL}/wishlist/add/${this.id}`, {token: this.token})
+        },
     },
 
     mounted(){
         this.id = this.$route.params.id;
-        this.product = this.products.find(product => product.id == this.id)
-        this.category = this.categories.find(category => category.id == this.product.categoryId)
+        this.product = this.products.find(product => product.id == this.id);
+        this.category = this.categories.find(category => category.id == this.product.categoryId);
+        this.token = localStorage.getItem("token");
     }
 }
 </script>
