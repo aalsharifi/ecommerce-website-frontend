@@ -42,7 +42,7 @@
                     <small class="my-0">Already Have an Account?</small>
                     <br>
                     <router-link class="link" :to="{ name: 'Signin' }">
-                        <button class="btn btn-secondary mb-4">Sign-in Here</button>
+                        <button class="btn  btn-outline-secondary mb-4">Sign-in Here</button>
                     </router-link>
             
 

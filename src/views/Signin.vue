@@ -18,12 +18,12 @@
 
                         <button class="btn btn-primary mt-2 py-2 px-4">Sign in</button>
                     </form>
-                    
+
                      <hr>
                     <small class="my-0">Need an Account?</small>
                     <br>
                     <router-link class="link" :to="{ name: 'Signup' }">
-                        <button class="btn btn-secondary mb-4">Create Your Account Here</button>
+                        <button class="btn  btn-outline-secondary mb-4">Create Your Account Here</button>
                     </router-link>
             
                 </div>
@@ -55,8 +55,9 @@ export default {
             };
 
             await axios.post(this.baseURL + "/user/signin", user)
-            .then(() => {
+            .then((res) => {
                 this.$router.push({name: 'Home'});
+                localStorage.setItem("token", res.data.token)
                 swal({
                     text: "Sign-in successful",
                     icon: "success"
