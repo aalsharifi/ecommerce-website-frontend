@@ -79,7 +79,7 @@ export default {
                     password: this.password,
                 }
 
-                console.log('user', user);
+                // console.log('user', user);
 
                 await axios.post(this.baseURL + "/user/signup", user)
                 .then(() => {
