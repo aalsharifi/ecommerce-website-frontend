@@ -10,6 +10,8 @@ import EditCategory from '../views/category/EditCategory.vue'
 import EditProduct from '../views/product/EditProduct.vue'
 import ShowProductDetails from '../views/product/ShowProductDetails.vue'
 import ListProducts from '../views/category/ListProducts.vue'
+import Signup from '../views/Signup.vue'
+import Signin from '../views/Signin.vue'
 
 Vue.use(VueRouter)
 
@@ -63,6 +65,16 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: Admin
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
+  },
+  {
+    path: '/signin',
+    name: 'Signin',
+    component: Signin
   },
 
   
