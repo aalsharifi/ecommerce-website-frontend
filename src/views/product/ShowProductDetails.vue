@@ -50,7 +50,7 @@ export default {
     },
 
     methods: {
-        async addToWishlist(){
+         addToWishlist(){
             if(!this.token){
                 swal({
                     text: "Please sign-in to add item into wishlist",
@@ -60,7 +60,7 @@ export default {
                 return;
             }
 
-            await axios.post(`${this.baseURL}/wishlist/add/${this.id}`, {token: this.token})
+            axios.post(`${this.baseURL}/wishlist/add/${this.id}/?Token=${this.token}`);
         },
     },
 
