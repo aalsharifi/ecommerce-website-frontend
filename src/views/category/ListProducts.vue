@@ -8,7 +8,7 @@
         </div>
 
         <div class="row">
-            <div v-for="product of category.products" :key="product.id"
+            <div v-for="product in product" :key="product.id"
                  class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
                 <ProductBox :product="product" />
             </div>
@@ -19,24 +19,28 @@
     import ProductBox from "../../components/product/ProductBox";
     export default {
         components: {ProductBox},
+        props: ["categories", "products"],
         data() {
             return {
                 id: null,
                 category: {},
-                msg: ''
+                msg: '',
+                product: {}, 
             }
         },
-        props: ["categories"],
         mounted() {
             this.id = this.$route.params.id;
             this.category = this.categories.find(category => category.id == this.id)
-            if (this.category.products.length == 0) {
+            this.product = this.products.filter(product => product.categoryId == this.id)
+
+            if (this.product.length == 0) {
                 this.msg = "no products found"
-            } else if (this.category.products.length == 1) {
+            } else if (this.product.length == 1) {
                 this.msg = "Only 1 product found"
             } else {
-                this.msg = this.category.products.length + " products found"
+                this.msg = this.product.length + " products found"
             }
+
         }
     }
 </script>
