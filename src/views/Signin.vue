@@ -65,6 +65,10 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                swal({
+                    text: "Sign-in unsuccessful",
+                    icon: "error"
+                });
             });
         }
     },
