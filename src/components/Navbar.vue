@@ -13,11 +13,14 @@
                     <a class="nav-link dropdown-toggle link" href="#" 
                     id="navbarDropdownMenuLink" data-toggle="dropdown" 
                     aria-haspopup="true" aria-expanded="false">Account</a>
-                    
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <router-link class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
-                        <router-link class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                        <router-link v-if="token" class="dropdown-item" :to="{ name: 'Wishlist' }">Wishlist</router-link>
+                        <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
+                        <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                        <a href="#" class="dropdown-item" v-if="token" @click="signout">Sign Out</a>
                     </div>
+
                 </li>
                 <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
                 <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
@@ -38,9 +41,12 @@
                         aria-haspopup="true" aria-expanded="false">Account</a>
                         
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <router-link class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
-                            <router-link class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                            <router-link v-if="token" class="dropdown-item" :to="{ name: 'Wishlist' }">Wishlist</router-link>
+                            <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
+                            <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
+                            <a href="#" class="dropdown-item" v-if="token" @click="signout">Sign Out</a>
                         </div>
+                        
                     </li>
                     <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
                     <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
@@ -58,6 +64,7 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
 export default {
     name: "Navbar",
     data(){
@@ -66,6 +73,7 @@ export default {
             mobile: null,
             mobileNav: null,
             windowWidth: null,
+            token: null,
         };
     },
 
@@ -76,13 +84,13 @@ export default {
 
     mounted(){
         window.addEventListener('scroll', this.updateScroll);
+        this.token = localStorage.getItem("token");
     },
 
     methods:{
         toggleMobileNav() {
             this.mobileNav = !this.mobileNav;
         },
-
         updateScroll(){
             const scrollPosition = window.scrollY;
             if(scrollPosition > 50){
@@ -92,7 +100,6 @@ export default {
             this.scrollNav = false;
            
         },
-
         checkScreen(){
             this.windowWidth = window.innerWidth;
             if(this.windowWidth <= 750){
@@ -104,6 +111,17 @@ export default {
             this.mobileNav = false;
             return;
         },
+        signout(){
+            localStorage.removeItem("token");
+            this.token = null;
+            swal({
+                    text: "Successfully signed out",
+                    icon: "success",
+                }).then(
+                    function(){ 
+                        location.reload();
+                    });
+        }
     }
     
 }
