@@ -61,7 +61,10 @@ export default {
                 swal({
                     text: "Sign-in successful",
                     icon: "success"
-                });
+                }).then(
+                    function(){ 
+                        location.reload();
+                    });
             })
             .catch((err) => {
                 console.log(err);
