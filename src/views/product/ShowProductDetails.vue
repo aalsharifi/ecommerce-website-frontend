@@ -60,7 +60,18 @@ export default {
                 return;
             }
 
-            axios.post(`${this.baseURL}/wishlist/add/${this.id}/?Token=${this.token}`);
+            axios.post(`${this.baseURL}/wishlist/add/${this.id}/?Token=${this.token}`)
+            .then((res) => {
+                if(res.status === 201){
+                    this.wishlistString = "Added to wishlist";
+                    swal({
+                        text: "Added to wishlist",
+                        icon: "success"
+                    });
+                }
+            }).catch((err) => {
+                console.log("error", err);
+            });
         },
     },
 

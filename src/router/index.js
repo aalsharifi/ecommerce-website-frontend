@@ -12,6 +12,7 @@ import ShowProductDetails from '../views/product/ShowProductDetails.vue'
 import ListProducts from '../views/category/ListProducts.vue'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
+import Wishlist from '../views/product/Wishlist.vue'
 
 Vue.use(VueRouter)
 
@@ -60,6 +61,11 @@ const routes = [
     path: '/product/show/:id',
     name: 'ShowProductDetails',
     component: ShowProductDetails
+  },
+  {
+    path: '/wishlist',
+    name: 'Wishlist',
+    component: Wishlist
   },
   {
     path: '/admin',
