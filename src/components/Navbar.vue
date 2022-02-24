@@ -35,10 +35,15 @@
                 <!-- admin -->
                 <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
                 <!-- cart -->
+                
                 <li class="nav-item">
-                    <router-link style="margin-left: 25px" class="link" :to="{ name: 'Cart' }">
-                        <i class="fa fa-shopping-cart" style="font-size:25px"></i>
-                    </router-link>
+                    <div id="cart" style="position: relative">
+                        <span id="nav-bar-count">{{ carCount }}</span>
+                        <router-link style="margin-left: 25px" class="link" :to="{ name: 'Cart' }">
+                            <i class="fa fa-shopping-cart" style="font-size:28px"></i>
+                        </router-link>
+                    </div>
+                    
                 </li>
             </ul>
           
@@ -93,6 +98,7 @@
 import swal from 'sweetalert';
 export default {
     name: "Navbar",
+    props: ["carCount"],
     data(){
         return{
             scrollNav: null,
@@ -294,6 +300,21 @@ export default {
                 }
             }
         }
+    }
+
+    #nav-bar-count{
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
+        font-size: 14px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        margin-left: 37px;
+       
     }
 
 
