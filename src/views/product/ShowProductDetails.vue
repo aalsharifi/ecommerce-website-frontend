@@ -15,6 +15,22 @@
                 <h6 class="font-weight-bold">${{ product.price }}</h6>
                 <p>{{ product.description }}</p>
 
+                
+                <div class="d-flex flex-row justify-content-between">
+                    <!-- Quantity -->
+                    <div class="input-group col-md-3 col-4 p-0">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Quantity</span>
+                        </div>
+                        <input type="number" class="form-control" v-model="quantity"/>
+                    </div>
+                    <!-- add to cart button -->
+                    <div class="input-group col-md-3 col-4 p-0">
+                        <button class="btn btn-primary" @click="addToCart">Add to Cart</button>
+                    </div>
+
+                </div>
+
                 <!-- features -->
                 <div class="features pt-3">
                     <h5><strong>Features</strong></h5>
@@ -45,7 +61,9 @@ export default {
             id: null,
             product: {},
             category: {},
+            quantity: 1,
             wishlistString: "Add to Wishlist",
+
         };
     },
 
@@ -73,6 +91,32 @@ export default {
                 console.log("error", err);
             });
         },
+
+        addToCart(){
+            if(!this.token){
+                swal({
+                    text: "Please sign-in to add item into cart",
+                    icon: "error"
+                });
+
+                return;
+            }
+
+            axios.post(`${this.baseURL}/cart/add?Token=${this.token}`, {
+                productId: this.id,
+                quantity: this.quantity,
+            })
+            .then((res) => {
+                if(res.status === 201){
+                    swal({
+                        text: "Added to cart",
+                        icon: "success"
+                    });
+                }
+            }).catch((err) => {
+                console.log("error", err);
+            });
+        },
     },
 
     mounted(){
@@ -87,6 +131,10 @@ export default {
 <style scoped>
     .category{
         font-weight: 400;
+    }
+    .btn-primary{
+        background-color: #febd69;
+        color: #000;
     }
 
 </style>
