@@ -112,6 +112,7 @@ export default {
                         text: "Added to cart",
                         icon: "success"
                     });
+                    this.$emit("fetchData");
                 }
             }).catch((err) => {
                 console.log("error", err);

@@ -22,11 +22,11 @@
                     </router-link>
 
                     <p class="mb-0 font-weight-bold" id="item-price">${{ cart.product.price }} per unit</p>
-                    <p class="mb-0">Quantity: {{cart.quantity}}</p>
-                    <p class="mb-0">Total: <span class="font-weight-bold">${{cart.product.price * cart.quantity}}</span></p>
+                    <p class="mb-0 float-left">Quantity: {{cart.quantity}}</p>
+                    <p class="mb-0 float-right">Total: <span class="font-weight-bold">${{cart.product.price * cart.quantity}}</span></p>
                 <!-- delete item from cart -->
                     <br>
-                    <button class="btn  btn-primary" @click="deleteItemFromWishlist(wish.id)" >Remove</button>
+                    <button class="btn  btn-primary" @click="deleteItemFromCart(cart.id)" >Remove</button>
                 </div>
             </div>
             <div class="col-2"></div>
@@ -63,12 +63,11 @@ export default {
             .catch((err) => console.log("error", err));
         },
         deleteItemFromCart(itemId){
-            axios.delete(`${this.baseURL}/wishlist/delete/${itemId}?Token=${this.token}`)
+            axios.delete(`${this.baseURL}/cart/delete/${itemId}?Token=${this.token}`)
             .then((res) => {
                 if(res.status == 200){
                     this.$router.go(0)
                 }
-
             })
             .catch((err) => console.log("error", err));
         }
@@ -80,3 +79,4 @@ export default {
     
 }
 </script>
+

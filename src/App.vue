@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   
-  <Navbar />
+  <Navbar :carCount="carCount"/>
 
   <router-view v-if="categories && products" style="min-height: 60vh;"
   :baseURL="baseURL" 
@@ -28,12 +28,12 @@ export default {
     return{
       baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
       products: null,
-      categories: null
+      categories: null,
+      carCount: 0,
     };
   },
   methods: {
     async fetchData(){
-
           //get all categories
             await axios
             .get(`${this.baseURL}/category/list`)
@@ -45,20 +45,28 @@ export default {
             .get(`${this.baseURL}/product/list`)
             .then((res) => (this.products = res.data))
             .catch((err) => console.log(err));
+
+            //get all cart items if token
+            if(this.token){
+              axios.get(`${this.baseURL}/cart/list/{token}?token=${this.token}`)
+              .then((res) => {
+                const result = res.data;
+                this.carCount = result.cartItemsDTOList.length;
+              })
+              .catch((err) => console.log("error", err));
+            }
         }
     },
     mounted(){
         this.fetchData();
+        this.token = localStorage.getItem("token");
     },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  html{
+    overflow-y: scroll;
+  }
+
 </style>
