@@ -13,6 +13,7 @@ import ListProducts from '../views/category/ListProducts.vue'
 import Signup from '../views/Signup.vue'
 import Signin from '../views/Signin.vue'
 import Wishlist from '../views/product/Wishlist.vue'
+import Cart from '../views/Cart.vue'
 
 Vue.use(VueRouter)
 
@@ -66,6 +67,11 @@ const routes = [
     path: '/wishlist',
     name: 'Wishlist',
     component: Wishlist
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
   },
   {
     path: '/admin',
