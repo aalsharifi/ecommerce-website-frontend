@@ -7,8 +7,19 @@
             </router-link>
 
             <ul v-show="!mobile" class="navigation">
-                <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
+                <!-- dropdown for browse -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle link" href="#" 
+                    id="navbarDropdownMenuLink" data-toggle="dropdown" 
+                    aria-haspopup="true" aria-expanded="false">Browse</a>
 
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <router-link class="dropdown-item" :to="{ name: 'Home' }">Home</router-link>
+                        <router-link class="dropdown-item" :to="{ name: 'Home' }">Product</router-link>
+                        <router-link class="dropdown-item" :to="{ name: 'Home' }">Category</router-link>
+                    </div>
+                </li>
+                <!-- dropdown for account -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle link" href="#" 
                     id="navbarDropdownMenuLink" data-toggle="dropdown" 
@@ -20,11 +31,15 @@
                         <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
                         <a href="#" class="dropdown-item" v-if="token" @click="signout">Sign Out</a>
                     </div>
-
                 </li>
+                <!-- admin -->
                 <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
-                <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
-                <li><router-link class="link" :to="{ name: '' }">Contact</router-link></li>
+                <!-- cart -->
+                <li class="nav-item">
+                    <router-link style="margin-left: 25px" class="link" :to="{ name: 'Cart' }">
+                        <i class="fa fa-shopping-cart" style="font-size:25px"></i>
+                    </router-link>
+                </li>
             </ul>
           
             <div class="icon">
@@ -33,8 +48,21 @@
 
             <transition name="mobile-nav">
                 <ul v-show="mobileNav" class="dropdown-nav">
+                    <!-- home -->
                     <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
+                    <!-- dropdown for browse -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link" href="#" 
+                        id="navbarDropdownMenuLink" data-toggle="dropdown" 
+                        aria-haspopup="true" aria-expanded="false">Browse</a>
 
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <router-link class="dropdown-item" :to="{ name: 'Home' }">Home</router-link>
+                            <router-link class="dropdown-item" :to="{ name: 'Home' }">Product</router-link>
+                            <router-link class="dropdown-item" :to="{ name: 'Home' }">Category</router-link>
+                        </div>
+                    </li>
+                    <!-- dropdown for account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle link" href="#" 
                         id="navbarDropdownMenuLink" data-toggle="dropdown" 
@@ -49,8 +77,6 @@
                         
                     </li>
                     <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
-                    <li><router-link class="link" :to="{ name: '' }">Portfolio</router-link></li>
-                    <li><router-link class="link" :to="{ name: '' }">Contact</router-link></li>
                 </ul>
             </transition>
 
@@ -161,8 +187,9 @@ export default {
 
             li{
                 text-transform: uppercase;
-                padding: 16px;
-                margin-left: 16px;
+                padding: 14px;
+                margin-left: 5px;
+                
             }
 
             .link{
