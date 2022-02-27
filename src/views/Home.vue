@@ -3,22 +3,15 @@
     <div id="background-div" class="page-holder bg-cover">
       <div class="container py-5">
 
-        <!-- <header class="text-left text-white py-5">
-          <h3 class="mb-4 rounded" id="heading">
-            <a href="#shop-now" class="bg-white px-2 py-2 rounded">Shop now</a>
-          </h3>
-          <p class="lead mb-0 bg-dark p-1 rounded">New Deals Daily</p>
-        </header> -->
-
         <div class="hero">
           <div class="heroContent">
-            <h1>Alsharifi Center</h1>
-            <p>New Deals Daily</p>
+            <h1>Alsharifi</h1>
+            <!-- <p>Clean our sales by buying</p> -->
+            <p>Don’t steal. The government hates competition.</p>
             <a href="#productPage"><button class="btn btn-outline-secondary">Shop Now</button></a>
-            <!-- <button class="btn btn-outline-secondary">Shop Now</button> -->
+            
           </div>
         </div>
-
 
       </div>
      
