@@ -2,8 +2,12 @@
    
     <header :class="{'scrolled-nav': scrollNav}">
         <nav>
-            <router-link class="branding" :to="{ name: 'Home' }">
+            <!-- <router-link class="branding" :to="{ name: 'Home' }">
                 <img src="@/assets/logo.png" alt="">
+            </router-link> -->
+
+            <router-link class="branding navBarLogo" :to="{ name: 'Home' }">
+                Alsharifi
             </router-link>
 
             <ul v-show="!mobile" class="navigation">
@@ -339,6 +343,14 @@ export default {
         position: absolute;
         margin-left: 37px;
        
+    }
+
+    .navBarLogo{
+        color: white;
+        text-decoration: none;
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
     }
 
 
