@@ -5,7 +5,7 @@
             <div class="col-12 text-center">
                 <h3 class="pt-3">Our Categories</h3>
                 <router-link :to="{name : 'AddCategory'}">
-                    <button class="btn" style="float:right">Add Category</button>
+                    <button class="btn" style="float:right" v-show="$route.name == 'AdminCategory'">Add Category</button>
                 </router-link>
             </div>
         </div>
