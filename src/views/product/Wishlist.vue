@@ -50,7 +50,6 @@ export default {
             .then((res) => {
                 const result = res.data;
                 this.wishlistItems = result.wishlistItemsDTOS;
-
             })
             .catch((err) => console.log("error", err));
         },
