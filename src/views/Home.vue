@@ -2,12 +2,24 @@
   <div id="home">
     <div id="background-div" class="page-holder bg-cover">
       <div class="container py-5">
-        <header class="text-left text-white py-5">
+
+        <!-- <header class="text-left text-white py-5">
           <h3 class="mb-4 rounded" id="heading">
             <a href="#shop-now" class="bg-white px-2 py-2 rounded">Shop now</a>
           </h3>
           <p class="lead mb-0 bg-dark p-1 rounded">New Deals Daily</p>
-        </header>
+        </header> -->
+
+        <div class="hero">
+          <div class="heroContent">
+            <h1>Alsharifi Center</h1>
+            <p>New Deals Daily</p>
+            <a href="#productPage"><button class="btn btn-outline-secondary">Shop Now</button></a>
+            <!-- <button class="btn btn-outline-secondary">Shop Now</button> -->
+          </div>
+        </div>
+
+
       </div>
      
     </div>
@@ -29,7 +41,7 @@
       </div>
 
     <!-- display top products -->
-    <div class="container py-3">
+    <div class="container py-3" id="productPage">
         <div class="row">
           <div class="col-12 text-center">
             <h2 class="pt-3">Top Products</h2>
@@ -83,4 +95,39 @@ export default {
   #heading{
     font-weight: 400;
   }
+
+
+
+  .heroContent{
+    color: rgb(116, 116, 116);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.heroContent h1{
+    font-size: clamp(3rem, 8vw, 6rem);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.heroContent p{
+    font-size: clamp(1rem, 4vw, 2rem);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+button{
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border-radius: 7px;
+}
+
+button:hover{
+    color: white;
+    background: black;
+}
+
+
+
 </style>
