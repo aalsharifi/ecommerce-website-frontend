@@ -15,8 +15,8 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <router-link class="dropdown-item" :to="{ name: 'Home' }">Home</router-link>
-                        <router-link class="dropdown-item" :to="{ name: 'Home' }">Product</router-link>
-                        <router-link class="dropdown-item" :to="{ name: 'Home' }">Category</router-link>
+                        <router-link class="dropdown-item" :to="{ name: 'Product' }">Product</router-link>
+                        <router-link class="dropdown-item" :to="{ name: 'Category' }">Category</router-link>
                     </div>
                 </li>
                 <!-- dropdown for account -->
@@ -26,7 +26,6 @@
                     aria-haspopup="true" aria-expanded="false">Account</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <router-link v-if="token" class="dropdown-item" :to="{ name: 'Wishlist' }">Wishlist</router-link>
                         <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
                         <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
                         <a href="#" class="dropdown-item" v-if="token" @click="signout">Sign Out</a>
@@ -34,27 +33,33 @@
                 </li>
                 <!-- admin -->
                 <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
+                <!-- wishlist -->
+                <li class="nav-item">
+                    <div id="wishlist" style="position: relative">
+                        <span id="nav-bar-count">{{ wishlistCount }}</span>
+                        <router-link style="margin-left: 18px" class="link" :to="{ name: 'Wishlist' }">
+                            <i class="fa fa-solid fa-heart" style="font-size:28px"></i>
+                        </router-link>
+                    </div>
+                </li>
                 <!-- cart -->
-                
                 <li class="nav-item">
                     <div id="cart" style="position: relative">
-                        <span id="nav-bar-count">{{ carCount }}</span>
-                        <router-link style="margin-left: 25px" class="link" :to="{ name: 'Cart' }">
+                        <span id="nav-bar-count">{{ cartCount }}</span>
+                        <router-link style="margin-left: 19px" class="link" :to="{ name: 'Cart' }">
                             <i class="fa fa-shopping-cart" style="font-size:28px"></i>
                         </router-link>
                     </div>
-                    
                 </li>
             </ul>
-          
+
+            <!-- mobile -->
             <div class="icon">
                 <i @click="toggleMobileNav" v-show="mobile" class="fa fa-bars" :class="{'icon-active' : mobileNav}"></i>
             </div>
 
             <transition name="mobile-nav">
                 <ul v-show="mobileNav" class="dropdown-nav">
-                    <!-- home -->
-                    <li><router-link class="link" :to="{ name: 'Home' }">Home</router-link></li>
                     <!-- dropdown for browse -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle link" href="#" 
@@ -63,25 +68,44 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <router-link class="dropdown-item" :to="{ name: 'Home' }">Home</router-link>
-                            <router-link class="dropdown-item" :to="{ name: 'Home' }">Product</router-link>
-                            <router-link class="dropdown-item" :to="{ name: 'Home' }">Category</router-link>
+                            <router-link class="dropdown-item" :to="{ name: 'Product' }">Product</router-link>
+                            <router-link class="dropdown-item" :to="{ name: 'Category' }">Category</router-link>
                         </div>
+
                     </li>
                     <!-- dropdown for account -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle link" href="#" 
                         id="navbarDropdownMenuLink" data-toggle="dropdown" 
                         aria-haspopup="true" aria-expanded="false">Account</a>
-                        
+
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <router-link v-if="token" class="dropdown-item" :to="{ name: 'Wishlist' }">Wishlist</router-link>
                             <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signup' }">Sign Up</router-link>
                             <router-link v-if="!token" class="dropdown-item" :to="{ name: 'Signin' }">Sign In</router-link>
                             <a href="#" class="dropdown-item" v-if="token" @click="signout">Sign Out</a>
                         </div>
-                        
+
                     </li>
-                    <li><router-link class="link" :to="{ name: 'Admin' }">Admin</router-link></li>
+                    <!-- admin -->
+                    <li><router-link class="link ml-4" :to="{ name: 'Admin' }">Admin</router-link></li>
+                    <!-- wishlist -->
+                    <li class="nav-item ml-3">
+                        <div id="wishlist" style="position: relative">
+                            <span id="nav-bar-count">{{ wishlistCount }}</span>
+                            <router-link style="margin-left: 18px" class="link" :to="{ name: 'Wishlist' }">
+                                <i class="fa fa-solid fa-heart" style="font-size:28px"></i>
+                            </router-link>
+                        </div>
+                    </li>
+                    <!-- cart -->
+                    <li class="nav-item ml-3">
+                        <div id="cart" style="position: relative">
+                            <span id="nav-bar-count">{{ cartCount }}</span>
+                            <router-link style="margin-left: 19px" class="link" :to="{ name: 'Cart' }">
+                                <i class="fa fa-shopping-cart" style="font-size:28px"></i>
+                            </router-link>
+                        </div>
+                    </li>
                 </ul>
             </transition>
 
@@ -98,7 +122,7 @@
 import swal from 'sweetalert';
 export default {
     name: "Navbar",
-    props: ["carCount"],
+    props: ["cartCount", "wishlistCount"],
     data(){
         return{
             scrollNav: null,
@@ -304,7 +328,7 @@ export default {
 
     #nav-bar-count{
         background-color: red;
-        color: white;
+        color: whitesmoke;
         border-radius: 50%;
         height: 12px;
         width: 12px;

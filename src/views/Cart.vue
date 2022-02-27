@@ -23,8 +23,9 @@
 
                     <p class="mb-0 font-weight-bold" id="item-price">${{ cart.product.price }} per unit</p>
                     <p class="mb-0 float-left">Quantity: {{cart.quantity}}</p>
-                    <p class="mb-0 float-right">Total: <span class="font-weight-bold">${{cart.product.price * cart.quantity}}</span></p>
+                    <p class="mb-0 float-right">Total: <span class="font-weight-bold">${{ (cart.product.price * cart.quantity).toFixed(2) }}</span></p>
                 <!-- delete item from cart -->
+                    <br>
                     <br>
                     <button class="btn  btn-primary" @click="deleteItemFromCart(cart.id)" >Remove</button>
                 </div>

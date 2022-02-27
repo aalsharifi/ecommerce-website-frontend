@@ -33,6 +33,12 @@ const routes = [
     name: 'AdminCategory',
     component: Category
   },
+  // category page
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category
+  },
   {
     path: '/admin/category/:id',
     name: 'EditCategory',
@@ -46,6 +52,12 @@ const routes = [
   {
     path: '/admin/product',
     name: 'AdminProduct',
+    component: Product
+  },
+  // product page
+  {
+    path: '/product',
+    name: 'Product',
     component: Product
   },
   {
