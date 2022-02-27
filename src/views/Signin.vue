@@ -3,7 +3,7 @@
 
         <div class="row">
             <div class="col-12 justify-content-center d-flex pt-5">
-                <div id="signin" class="flex-item border ">
+                <div id="signin" class="flex-item border text-center">
                     <h2 class="pt-4">Sign-in</h2>
 
                     <form @submit="signin" class="form-group pt-4 pl-4 pr-4">
