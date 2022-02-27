@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   
-  <Navbar :carCount="carCount"/>
+  <Navbar :cartCount="cartCount" :wishlistCount="wishlistCount"/>
 
   <router-view v-if="categories && products" style="min-height: 60vh;"
   :baseURL="baseURL" 
@@ -29,7 +29,8 @@ export default {
       baseURL: "https://heroku-ecommerce-backend.herokuapp.com",
       products: null,
       categories: null,
-      carCount: 0,
+      cartCount: 0,
+      wishlistCount: 0,
     };
   },
   methods: {
@@ -46,15 +47,24 @@ export default {
             .then((res) => (this.products = res.data))
             .catch((err) => console.log(err));
 
-            //get all cart items if token
+            //get all cart and wishlist items if token
             if(this.token){
+              //cart
               axios.get(`${this.baseURL}/cart/list/{token}?token=${this.token}`)
               .then((res) => {
                 const result = res.data;
-                this.carCount = result.cartItemsDTOList.length;
+                this.cartCount = result.cartItemsDTOList.length;
               })
               .catch((err) => console.log("error", err));
-            }
+
+              //wishlist
+              axios.get(`${this.baseURL}/wishlist/list/{token}?token=${this.token}`)
+              .then((res) => {
+                const result = res.data;
+                this.wishlistCount = result.wishlistItemsDTOS.length;
+              })
+              .catch((err) => console.log("error", err));
+            }  
         }
     },
     mounted(){
