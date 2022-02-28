@@ -1,7 +1,7 @@
 <template>
    <footer>
        <div class="container pt-5">
-           <div class="row">
+           <div class="row mt-3">
                <div class="col-md-3 col-6">
                    <ul style="list-style-type: none">
                        <li class="text-light font-weight-bold pb-2">Get to know us</li>
@@ -48,9 +48,10 @@ export default {
 
 <style scoped>
     footer{
-        margin-top: 100px;
+        /* margin-top: 100px; */
         background-color: #000;
         font-size: 16px;
+        height: 280px;
     }
     a{
         text-decoration: none;
@@ -61,4 +62,12 @@ export default {
     li{
         padding-bottom: 10px;
     }
+
+    @media screen and (max-width: 768px) {
+        footer{
+            height: auto;
+        }
+    }
+
+    
 </style>
