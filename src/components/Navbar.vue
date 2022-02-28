@@ -2,10 +2,7 @@
    
     <header :class="{'scrolled-nav': scrollNav}">
         <nav>
-            <!-- <router-link class="branding" :to="{ name: 'Home' }">
-                <img src="@/assets/logo.png" alt="">
-            </router-link> -->
-
+            
             <router-link class="branding navBarLogo" :to="{ name: 'Home' }">
                 Alsharifi
             </router-link>

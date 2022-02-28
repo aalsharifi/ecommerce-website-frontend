@@ -1,7 +1,7 @@
 <template>
     
     <div class="container">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 text-center">
                 <h3 class="pt-3">Add New Category</h3>
             </div>

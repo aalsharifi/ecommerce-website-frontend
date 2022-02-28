@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Shopping Cart</h4>
             </div>
@@ -35,7 +35,7 @@
         </div>
 
         <!-- total price in cart -->
-        <div class="total-cost pt-2 text-right">
+        <div class="total-cost pt-2 text-right mb-5">
             <h5>Total: ${{ totalCost }}</h5>
         </div>
         

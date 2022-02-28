@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- display all categories in categoryBox component -->
-        <div class="row">
+        <div class="row mb-5">
             <div v-for="category of categories" :key="category.id" 
             class="col-xl-4 col-md-6 col-12 pt-3 d-flex">
                 <CategoryBox :category="category"></CategoryBox>

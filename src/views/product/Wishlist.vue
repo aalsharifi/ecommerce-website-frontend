@@ -1,13 +1,13 @@
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Your Wishlist</h4>
             </div>
         </div>
 
         <!-- display wishlist items  -->
-        <div v-for="wish in wishlistItems" :key="wish.id" class="row mt-2 pt-3">
+        <div v-for="wish in wishlistItems" :key="wish.id" class="row mt-2 pt-3 mb-5">
             <div class="col-2"></div>
             <!-- image -->
             <div class="col-md-3 embed-responsive embed-responsive-16by9">

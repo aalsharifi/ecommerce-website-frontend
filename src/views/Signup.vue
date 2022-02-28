@@ -1,8 +1,8 @@
 <template>
     <div class="container">
 
-        <div class="row">
-            <div class="col-12 justify-content-center d-flex pt-5">
+        <div class="row mb-3 mt-3">
+            <div class="col-12 justify-content-center d-flex pt-5 mb-5">
                 <div id="signup" class="flex-item border text-center">
                     <h2 class="pt-4 pl-4">Create Account</h2>
                     <form @submit="signup" class="pt-4 pl-4 pr-4">

@@ -10,12 +10,13 @@
             </div>
         </div>
         <!-- display all products in productbox component -->
-        <div class="row">
+        <div class="row mb-5">
             <div v-for="product of products" :key="product.id" 
             class="col-xl-4 col-md-6 col-12 pt-3 d-flex">
                 <ProductBox :product="product"></ProductBox>
             </div>
         </div>
+        
     </div>
 </template>
 

@@ -1,14 +1,14 @@
 <template>
 
     <div class="container">
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Edit Product</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-6 mb-5">
                 <form v-if="product">
                     <div class="form-group">
                         <label>Category</label>
