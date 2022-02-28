@@ -1,8 +1,8 @@
 <template>
     
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center mt-5">
                 <h3 class="pt-3">Our Categories</h3>
                 <router-link :to="{name : 'AddCategory'}">
                     <button class="btn" style="float:right" v-show="$route.name == 'AdminCategory'">Add Category</button>
@@ -16,6 +16,7 @@
                 <CategoryBox :category="category"></CategoryBox>
             </div>
         </div>
+        <br>
     </div>
 </template>
 

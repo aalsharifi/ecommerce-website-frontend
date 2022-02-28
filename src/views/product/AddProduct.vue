@@ -1,7 +1,7 @@
 <template>
     
-    <div class="container">
-        <div class="row mt-4">
+    <div class="container mt-5 mb-5">
+        <div class="row">
             <div class="col-12 text-center">
                 <h3 class="pt-3">Add New Product</h3>
             </div>

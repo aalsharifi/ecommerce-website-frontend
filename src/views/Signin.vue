@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mb-5 mt-5">
 
         <div class="row">
             <div class="col-12 justify-content-center d-flex pt-5">
@@ -30,6 +30,7 @@
                
             </div>
         </div>
+        <br>
     </div>
 </template>
 

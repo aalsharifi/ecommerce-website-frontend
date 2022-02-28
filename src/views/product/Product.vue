@@ -1,6 +1,6 @@
 <template>
     
-    <div class="container">
+    <div class="container mb-5 mt-5">
         <div class="row">
             <div class="col-12 text-center">
                 <h3 class="pt-3">Our Products</h3>
@@ -16,7 +16,7 @@
                 <ProductBox :product="product"></ProductBox>
             </div>
         </div>
-        
+        <br>
     </div>
 </template>
 

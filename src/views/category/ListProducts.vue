@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mb-5 mt-5">
         <div class="row">
             <div class="col-12 text-center">
                 <h4 class="pt-3"> {{category.categoryName}}</h4>
@@ -7,12 +7,13 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mb-5">
             <div v-for="product in product" :key="product.id"
                  class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
                 <ProductBox :product="product" />
             </div>
         </div>
+        <br>
     </div>
 </template>
 <script>

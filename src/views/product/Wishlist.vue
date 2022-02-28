@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <div class="row mt-4">
+    <div class="container mt-5 mb-5">
+        <div class="row">
             <div class="col-12 text-center">
                 <h4 class="pt-3">Your Wishlist</h4>
             </div>
@@ -30,7 +30,7 @@
             <div class="col-2"></div>
             <div class="col-12"><hr></div>
         </div>
-        
+        <br>
     </div>
 </template>
 
