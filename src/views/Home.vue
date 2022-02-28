@@ -6,8 +6,7 @@
         <div class="hero">
           <div class="heroContent">
             <h1>Alsharifi</h1>
-            <!-- <p>Clean our sales by buying</p> -->
-            <p>Don’t steal. The government hates competition.</p>
+            <p>Clean our sales by buying</p>
             <a href="#productPage"><button class="btn btn-outline-secondary">Shop Now</button></a>
             
           </div>
@@ -49,6 +48,22 @@
         </div>
       </div>
 
+
+      <!-- email -->
+    <div class="email mt-5">
+        <div class="emailContent">
+            <h1>Get Access to Members Only Perks</h1>
+            <p>Sign up for our newsletter below to get 10% off next order</p>
+            <form action="#">
+                <div class="input-group mb-3">
+                  <input type="email" class="form-control" placeholder="Email" required>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-warning" type="submit">Sign up</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -90,7 +105,7 @@ export default {
   }
 
 
-
+  /* hero */
   .heroContent{
     color: rgb(116, 116, 116);
     padding: 3rem 1rem;
@@ -121,6 +136,43 @@ button:hover{
     background: black;
 }
 
+/* email */
+.email{
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0.1) 35%,
+        rgba(0, 0, 0, 1) 100%
+        ),url("../assets/tree.jpg") no-repeat center;
+        background-size: cover;
+        height: 450px;
+        width: 100%;
+        padding: 5rem calc((100vw - 1300px) / 2);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.emailContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emailContent h1{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 5vw, 3rem);
+    padding: 0 1rem;
+}
+
+.emailContent p{
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+}
 
 
 </style>
