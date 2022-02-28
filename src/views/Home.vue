@@ -7,7 +7,7 @@
           <div class="heroContent">
             <h1>Alsharifi</h1>
             <p>Clean our sales by buying</p>
-            <a href="#productPage"><button class="btn btn-outline-secondary">Shop Now</button></a>
+            <a href="#productPage" style="top: -300px;"><button class="btn btn-outline-secondary">Shop Now</button></a>
             
           </div>
         </div>
