@@ -86,7 +86,8 @@ export default {
                     swal({
                         text: "Added to wishlist",
                         icon: "success"
-                    });
+                    })
+                    this.$emit("fetchData");
                 }
             }).catch((err) => {
                 console.log("error", err);
