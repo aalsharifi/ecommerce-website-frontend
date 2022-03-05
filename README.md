@@ -1,5 +1,7 @@
 # ecommerce_frontend
 
+Ecommerce application frontend uses vue.js to build a smooth and easy going application. Detailed design meant for a superior user experience
+
 ## Project setup
 ```
 npm install
